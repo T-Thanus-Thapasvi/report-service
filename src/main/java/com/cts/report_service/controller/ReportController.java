@@ -52,4 +52,9 @@ public class ReportController {
             @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate end) {
         return reportService.findByGeneratedDateBetween(start, end);
     }
+
+    @GetMapping("/transactionsreport/{status}")
+    public Report generateTransactionReport(@PathVariable String status) {
+        return reportService.generateTransactionReport(status);
+    }
 }
